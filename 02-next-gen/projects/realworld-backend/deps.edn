@@ -1,0 +1,23 @@
+{:mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
+             "clojars" {:url "https://clojars.org/repo"}}
+
+ :deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        org.clojure/tools.deps.alpha {:mvn/version "0.12.985"}
+        clj-jwt/clj-jwt {:mvn/version "0.1.1"}
+
+        poly/article {:local/root "../../components/article"}
+        poly/rest-api {:local/root "../../bases/rest-api"}}
+
+ :aliases {:test {:extra-paths []
+                  :extra-deps  {org.clojure.test.check {:mvn/version "0.10.0-alpha3"}}}
+
+           :aot {:extra-paths ["classes"]
+                 :main-opts ["-e" "(compile, 'clojure.realworld.rest-api.main)"]}
+           :uberjar {:extra-paths {uberdeps/uberdeps {:mvn/version "0.1.10"}}
+                     :main-opts ["-m" "uberdeps.uberjar"
+                                 "--aliases" "aot"
+                                 "--main-class" "clojure.realworld.rest_api.main"]}}}
+
+
+
+
