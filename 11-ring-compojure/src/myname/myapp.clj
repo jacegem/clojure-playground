@@ -10,7 +10,7 @@
 
 
 (defroutes app
-  (GET "/" [] "Hello World 3")
+  (GET "/" [] "Hello World 5")
   (not-found "Page not found"))
 
 (defn handler [request]
@@ -21,7 +21,7 @@
 
 (defn -main [& args]
   (println "Server started on port 3000")
-  (run-jetty (wrap-reload #'app) {:port 3000
+  (run-jetty (wrap-reload #'app) {:port 3001
                                   :join? false}))
 
 (comment
