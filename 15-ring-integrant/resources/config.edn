@@ -1,0 +1,26 @@
+{:db/xtdb {:minimum-idle      1
+           :maximum-pool-size 10
+           :adapter           "mysql8"
+           :username          "root"
+           :password          "my-password"
+           :server-name       "localhost"
+           :database-name     "xtdb"
+           :port-number       3306}
+
+ :db/user {:minimum-idle      1
+           :maximum-pool-size 10
+           :adapter           "mysql8"
+           :username          "root"
+           :password          "my-password"
+           :server-name       "localhost"
+           :database-name     "user"
+           :port-number       3306}
+
+ :app/config    {:profile "dev"}
+ :handler/app   {:db/xtdb #ig/ref :db/xtdb
+                 :db/user #ig/ref :db/user
+                 :config  #ig/ref :app/config}
+
+ :server/jetty  {:port    8080
+                 :handler #ig/ref :handler/app}}
+

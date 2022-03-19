@@ -1,9 +1,10 @@
-
 (ns xtdb-tut.notespace
   (:require [scicloj.notespace.v4.api :as notespace]))
 
 (comment
   (notespace/restart!)
+
+
   '())
 
 :_

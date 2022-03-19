@@ -1,3 +1,0 @@
-(ns web.user.core)
-
-
