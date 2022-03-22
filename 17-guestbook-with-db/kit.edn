@@ -1,0 +1,8 @@
+{:full-name "kit/guestbook-with-db"
+ :ns-name   "kit.guestbook-with-db"
+ :sanitized "kit/guestbook_with_db"
+ :name      "guestbook-with-db"
+ :modules   {:root         "modules"
+             :repositories [{:url  "https://github.com/kit-clj/modules.git"
+                             :tag  "master"
+                             :name "kit-modules"}]}}
