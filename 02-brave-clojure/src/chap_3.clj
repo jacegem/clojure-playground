@@ -1,5 +1,4 @@
-(ns chap-3
-  (:require [replace :as clojure.string]))
+(ns chap-3)
 
 ;; https://www.braveclojure.com/do-things/
 
@@ -53,17 +52,20 @@
 
 (defn make-body-parts [{:keys [total-body-parts] :as state} body-part]
   (if-let [count (:count body-part)]
-    (map (fn [idx]
-           (let [name (:name body-part)
-                 new-name (str name "-" idx)
-                 new-part (assoc body-part :name new-name)]
-             (into total-body-parts new-part))) (range count))
-    (into total-body-parts body-part)))
+    (let [result (map (fn [idx]
+                        (let [name (:name body-part)
+                              new-name (str name "-" idx)
+                              new-part (assoc body-part :name new-name)]
+                          new-part)) (range count))
+          new-total (apply conj total-body-parts result)]
+      (assoc state :total-body-parts new-total))
+    (let [result (conj total-body-parts body-part)]
+      (assoc state :total-body-parts result))))
 
-(make-body-parts {:total-body-parts {}} {:name "leg" :size 3 :count 2})
+(make-body-parts {:total-body-parts []} {:name "leg" :size 3 :count 2})
 
 
-(reduce make-body-parts {:total-body-parts {}} asym-hobbit-body-parts)
+(reduce make-body-parts {:total-body-parts []} asym-hobbit-body-parts)
 
 
 (into {} {:name "leg" :size 3 :count 2})
@@ -96,3 +98,15 @@
                      (set [part (matching-part part)])))))))
 
 
+(float 1/5)
+
+(+ 1 (bit-not 10))
+
+
+(defn dec-maker
+  [dec-by]
+  #(+ % 1 (bit-not dec-by)))
+
+(def dec9 (dec-maker 9))
+
+(dec9 10)
