@@ -32,8 +32,7 @@
                           slipset/deps-deploy {:mvn/version "0.2.0"}
                           weavejester/dependency {:mvn/version "0.2.1"}}
                    :ns-default build}
-
-
+           :run {:main-opts ["-m" "kit.guestbook-with-db.core"]}
            :dev  {:extra-deps  {;; uncomment to enable hot classpath reload in the REPL
                                 com.lambdaisland/classpath  {:mvn/version "0.0.27"}
                                 criterium/criterium             {:mvn/version "0.4.6"}

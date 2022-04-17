@@ -1,0 +1,8 @@
+{:full-name "kit/kit-sql-xtdb"
+ :ns-name   "kit.kit-sql-xtdb"
+ :sanitized "kit/kit_sql_xtdb"
+ :name      "kit-sql-xtdb"
+ :modules   {:root         "modules"
+             :repositories [{:url  "https://github.com/kit-clj/modules.git"
+                             :tag  "master"
+                             :name "kit-modules"}]}}

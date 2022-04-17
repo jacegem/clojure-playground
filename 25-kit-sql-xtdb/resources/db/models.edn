@@ -1,0 +1,9 @@
+{:book [[:id :serial {:unique true
+                      :primary-key true}]
+        [:name [:varchar 256] {:null false}]
+        [:description :text]]}
+
+
+;; clojure -T:migrations make
+;; clojure -X:migrations list
+;; clojure -X:migrations migrate

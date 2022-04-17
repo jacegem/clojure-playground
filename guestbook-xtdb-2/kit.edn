@@ -1,8 +1,0 @@
-{:full-name "kit/guestbook-xtdb-2"
- :ns-name   "kit.guestbook-xtdb-2"
- :sanitized "kit/guestbook_xtdb_2"
- :name      "guestbook-xtdb-2"
- :modules   {:root         "modules"
-             :repositories [{:url  "https://github.com/kit-clj/modules.git"
-                             :tag  "master"
-                             :name "kit-modules"}]}}

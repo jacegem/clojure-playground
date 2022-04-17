@@ -44,7 +44,7 @@
  ;; https://docs.xtdb.com/administration/configuring/
  :db.xtdb/node {:xtdb.jdbc/connection-pool {:dialect {:xtdb/module 'xtdb.jdbc.mysql/->dialect}
                                             :db-spec {:host "localhost"
-                                                      :dbname "xtdb"
+                                                      :dbname "info-conn"
                                                       :user "root"
                                                       :password "my-password"}}
                 :xtdb/tx-log {:xtdb/module 'xtdb.jdbc/->tx-log
@@ -52,10 +52,13 @@
                 :xtdb/document-store {:xtdb/module 'xtdb.jdbc/->document-store
                                       :connection-pool :xtdb.jdbc/connection-pool}}
 
+
+
+
  :db.sql/connection
- #profile {:dev  {:jdbc-url "jdbc:mysql://localhost/user?user=root&password=my-password"}
+ #profile {:dev  {:jdbc-url "jdbc:mysql://localhost/info-conn?user=root&password=my-password"}
            :test {}
-           :prod {:jdbc-url   #env JDBC_URL
+           :prod {:jdbc-url   "jdbc:mysql://localhost/info-conn?user=root&password=my-password" ;  #env JDBC_URL
                   :init-size  1
                   :min-idle   1
                   :max-idle   8
