@@ -1,16 +1,23 @@
-(ns user)
+(ns user
+  (:require [nextjournal.clerk :as clerk]))
 
 
-(require '[nextjournal.clerk :as clerk])
+
+(comment
 
 ;; start Clerk's buit-in webserver on the default port 7777, opening the browser when done
-(clerk/serve! {:browse? true})
+  (clerk/serve! {:browse? true})
+
 
 ;; either call `clerk/show!` explicitly
-(clerk/show! "notebooks/rule_30.clj")
+  (clerk/show! "notebooks/rule_30.clj")
+
+
+
 
 ;; or let Clerk watch the given `:paths` for changes
-(clerk/serve! {:watch-paths ["notebooks" "src"]})
+  (clerk/serve! {:watch-paths ["notebooks" "src"]})
+
 
 ;; start with watcher and show filter function to enable notebook pinning
-(clerk/serve! {:watch-paths ["notebooks" "src"] :show-filter-fn #(clojure.string/starts-with? % "notebooks")})
+  (clerk/serve! {:watch-paths ["notebooks" "src"] :show-filter-fn #(clojure.string/starts-with? % "notebooks")}))
