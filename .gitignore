@@ -30,3 +30,4 @@
 **/db/data
 **/db/user-data
 .clerk/
+.lsp/

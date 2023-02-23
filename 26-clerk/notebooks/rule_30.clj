@@ -1,4 +1,4 @@
-;; # Rule 30 🕹
+;; # Rule 30 🕹 - original
 ;; Let's explore cellular automata in a Clerk Notebook. We start by requiring the custom viewers.
 (ns rule-30
   (:require [nextjournal.clerk :as clerk]))
